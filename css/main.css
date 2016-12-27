@@ -1,0 +1,25 @@
+* {
+	border-style: border-box;
+	background-color: #d3d3d3;
+}
+
+#title {
+	text-align: center;
+}
+
+#question-box {
+	text-align: center;
+	padding: 0, 0, 0;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#game-start-div {
+	text-align: center;
+}
+
+#question-box {
+	text-align: left;
+}
