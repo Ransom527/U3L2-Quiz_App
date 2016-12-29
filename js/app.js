@@ -13,14 +13,37 @@ var Questions =[ {
 },
 {
 	Question:'The infamous "Konami Code" first appeared in which game?',
-	Choices:['Contra','Gradius','Mega Zone','Sidewinder'],
+	Choices:['Contra','Sidewinder','Mega Zone','Gradius'],
 	Answer:function(value){
 		if(!value)
 			return 'Gradius'
 		return 'Gradius' == value;
 	}
+},
+{
+	Question:'Nintendo of America is the majority owner of which sports team?',
+	Choices:['San Francisco Giants','Seattle Seahawks','Seattle Mariners','Chicago Cubs'],
+	Answer:function(value){
+		if(!value)
+			return 'Seattle Mariners'
+		return 'Seattle Mariners' == value;
+},
+{
+	Question:'Hyundai released the NES in South Korea under a different name due to import restrictions, what was it called?',
+	Choices:['Ultra 64','Comboy','iQue Player','Famicom'],
+	Answer:function(value){
+		if(!value)
+			return 'Comboy'
+		return 'Comboy' == value;
+},
+{
+	Question:'What was the name of the eagerly awaited add-on for the Nintedo 64, only realeased in Japan?',
+	Choices:['N64 DD','iQue Player','SatellaVision','Ultra 64'],
+	Answer:function(value){
+		if(!value)
+			return 'N64 DD'
+		return 'N64 DD' == value;
 }
-	// Need more question objects?
 ]
 
 
@@ -105,7 +128,9 @@ function nextQuestion() {
 	renderQuestion(Questions[onQuestion])
 }
 
-//uncheck answer function
+uncheckAnswers() {
+//
+}
 
 function checkAnswer() {
 
