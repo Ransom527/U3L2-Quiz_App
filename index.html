@@ -16,34 +16,36 @@
 
 
 <div id='game-start-div'>
-	<button id='start' onclick="gameStart()">Start Game</button>
+	<button id='start' onclick='gameStart()'>Start Game</button><br/>
+	<button id='new-game' class='hidden' onclick='newGame()'>New Game</button>
 </div>
 
 
 <div class='hidden' id="question-box">
 
-	<form id="mainform" onSubmit="onSubmit()">
+	<form id="mainform" onsubmit="onSubmit()">
 
 	<p id='Question'>What company ... in 1984?</p>
 
-	<input type="radio" id='Option0' name="Answers">
+	<input type="radio" class='selections' id='Option0' name="Answers">
 	<span class='answers' id='Answer0'>Apple</span><br/>
 
-	<input type="radio" id='Option1' name="Answers">
+	<input type="radio" class='selections' id='Option1' name="Answers">
 	<span class='answers' id='Answer1'>Dell</span><br/>
 
-	<input type="radio" id='Option2' name="Answers">
+	<input type="radio" class='selections' id='Option2' name="Answers">
 	<span class='answers' id='Answer2'>Google</span><br/>
 
-	<input type="radio" id='Option3' name="Answers">
-	<span class='answers' id='Answer3'>Microsoft</span><br/>
+	<input type="radio" class='selections' id='Option3' name="Answers">
+	<span class='answers' id='Answer3'>Microsoft</span><br/><br/>
 
 	<button id='Submit' name='Submit' type='submit'>Submit</button>
 
 	<button id='next-question' onclick="nextQuestion()" class='hidden' name='next-question' type='next'>Next Question</button><br/>
 
 	<span class='answers' id='answer-box'></span><br/>
-	<!--add hidden class-->
+	<span id='on-question'></span><br/>
+	<span id='number-correct'></span><br/>
 
 	</form>
 	</div>
