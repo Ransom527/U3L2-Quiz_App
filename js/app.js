@@ -7,25 +7,21 @@ var State = {
 	Question:'What was the development codename for the Nintendo Gamecube?',
 	Choices:['Swordfish','Dolphin','Rhino','Panther'],
 	Answer: 'Dolphin'
-	}
 },
 {
 	Question:'The infamous "Konami Code" first appeared in which game?',
 	Choices:['Contra','Sidewinder','Mega Zone','Gradius'],
 	Answer: 'Gradius'
-	}
 },
 {
 	Question:'Nintendo of America is the majority owner of which sports team?',
 	Choices:['San Francisco Giants','Seattle Seahawks','Seattle Mariners','Chicago Cubs'],
 	Answer: 'Seattle Mariners'
-	}
 },
 {
 	Question:'Hyundai released the Nintedo 64 in South Korea under a different name due to import restrictions, what was it called?',
 	Choices:['Ultra 64','Comboy 64','iQue Player','Famicom'],
 	Answer: 'Comboy 64'
-	}
 },
 {
 	Question:'What was the name of the eagerly awaited add-on for the Nintedo 64, only realeased in Japan?',
@@ -41,7 +37,6 @@ var State = {
 	Question:'What was the name of the camera peripheral for the Sega Dreamcast, only released in Japan?',
 	Choices:['DreamSnap','SegaCam','Dreameye','WebCast'],
 	Answer: 'Dreameye'
-	}
 }]
 };
 
@@ -55,7 +50,7 @@ var State = {
 
 //consolidate both
 function gameStart() {
-	renderQuestion(Questions[onQuestion]);
+	renderQuestion(State.Questions[State.onQuestion]);
 	$("#question-box").removeClass('hidden');
 	$("#start").addClass('hidden');
 }
@@ -64,7 +59,7 @@ function gameStart() {
 function newGame() {
 	State.onQuestion = 0;
 	State.numberCorrect = 0;
-	renderQuestion(Questions[onQuestion]);
+	renderQuestion(State.Questions[State.onQuestion]);
 	$("#answer-box").text('');
 	$('.selections').prop('checked', false);
 	$("#question-box").removeClass('hidden');
@@ -76,32 +71,32 @@ function newGame() {
 function renderQuestion(data) {
 	console.log(data, 'data')
 	$('#Question').text(data.Question);
-	$('#Answer0').text(data.Choices[0]);
+	$('#Answer0').text(data.Choices[0]);//.value(data.Choices[0]);
 	$('#Answer1').text(data.Choices[1]);
 	$('#Answer2').text(data.Choices[2]);
 	$('#Answer3').text(data.Choices[3]);
-	$('#on-question').text(onQuestion);
-	$('#number-correct').text(numberCorrect);
+	$('#on-question').text(State.onQuestion);
+	$('#number-correct').text(State.numberCorrect);
 }
+//.attr
 
 //refactor
 function onSubmit() {
 	event.preventDefault();
 	var choice
-	$("input:radio[name='Answers']:checked").val();
-	if(State.Questions[State.onQuestion].Answer === $("input:radio[name='Answers']:checked").val()) {
+	console.log($("input:radio[name='Answers']"));
+	if(State.Questions[State.onQuestion].Answer === $("input:radio[name='Answers']:checked").text()) {
 		State.numberCorrect++
 	}
 	else {
-		console.log(Questions[onQuestion].Answer())
-		$('#answer-box').text(Questions[onQuestion].Answer());
-		settimout()
+		$('#answer-box').text(State.Questions[State.onQuestion].Answer);
+		//settimout();
 		//settimout function add hidden
 		//alert(Questions[onQuestion].Answer()).//timout
 	}
 	State.onQuestion += 1;
 	$("#Submit").addClass('hidden');
-	if(onQuestion == Questions.length) {
+	if(State.onQuestion == State.Questions.length) {
 		gameOver();
 		$("#new-game").removeClass('hidden');
 		$("#question-box").addClass('hidden');
@@ -126,12 +121,12 @@ function nextQuestion() {
 	$("#next-question").addClass('hidden');
 	$("#Submit").removeClass('hidden');
 	$("#answer-box").text('');
-	renderQuestion(Questions[onQuestion])
+	renderQuestion(State.Questions[State.onQuestion])
 }
 
 
 function gameOver() {
-	//define actions for 'game over'
+	$("#game-over-div").removeClass('hidden');
 }
 
 
