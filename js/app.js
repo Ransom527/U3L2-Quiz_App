@@ -90,9 +90,6 @@ function onSubmit() {
 	}
 	else {
 		$('#answer-box').text(State.Questions[State.onQuestion].Answer);
-		//settimout();
-		//settimout function add hidden
-		//alert(Questions[onQuestion].Answer()).//timout
 	}
 	State.onQuestion += 1;
 	$("#Submit").addClass('hidden');
